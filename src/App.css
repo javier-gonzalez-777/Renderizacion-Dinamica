@@ -42,3 +42,19 @@
   color: #888;
 }
 */
+.error {
+  padding: 10px;
+  color: white;
+  background-color: red;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.error2 {
+  padding: 10px;
+  color: white;
+  background-color: rgb(18, 241, 22);
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+}

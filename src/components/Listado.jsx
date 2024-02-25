@@ -3,11 +3,11 @@ import React from "react";
 
 const Listado = (props) => {
   const { datos } = props;
-  console.log("arreglo Listado:", datos);
+ // console.log("arreglo Listado:", datos);
 
   return (
     <>
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">Id</th>

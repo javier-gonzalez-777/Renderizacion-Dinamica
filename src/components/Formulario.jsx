@@ -5,7 +5,7 @@ import Listado from "./Listado";
 import Datos from "../BaseColaboradores";
 
 
-const Formulario = () => {
+const Formulario = ({ agregarColaborador }) => {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [edad, setEdad] = useState("");
@@ -13,14 +13,16 @@ const Formulario = () => {
   const [telefono, setTelefono] = useState("");
   const [error, setError] = useState(false);
   const [listaUsuarios, setListaUsuarios] = useState(Datos);
-  //const [idCounter, setIdCounter] = useState(1);
   const [ultimoId, setUltimoId] = useState(Datos.length);
+  const [mensaje, setMensaje] = useState("");
 
   // const [ListadoNuevo, setListadoNuevo]= useState("")
 
-  const validarInput = (e) => {
+  
+  const enviarFormulario = (e) => {
     e.preventDefault();
-
+    //*** Validar **/
+ 
     if (
       nombre === "" ||
       email === "" ||
@@ -29,45 +31,45 @@ const Formulario = () => {
       telefono === ""
     ) {
       setError(true);
-      //  alert("datos incompletos");
+      setMensaje("Completa todos los campos");
       return;
     }
-    setError(false);
-    //   alert("datos completos");
-    enviarFormulario();
-  };
-  // Función al enviar el formulario
-  const enviarFormulario = (e) => {
-    e.preventDefault();
-    setListaUsuarios([
-      ...listaUsuarios,
-      {
-        id: ultimoId + 1, // Incrementa el id de manera dinámica
-        nombre: nombre,
-        email: email,
-        edad: edad,
-        cargo: cargo,
-        telefono: telefono,
-      },
-    ]); // Agregamos la tarea
+    //setError(false);
+    
+    //**fin Validar */
 
+    
+    const nuevoColaborador = {
+      id: ultimoId + 1, // Incrementa el id de manera dinámica //Math.floor(Math.random() * 1000), // Generar un id aleatorio
+      nombre: nombre,
+      email: email,
+      edad: edad,
+      cargo: cargo,
+      telefono: telefono,
+    };
+
+    agregarColaborador(nuevoColaborador);
+    
+    setError(false);
+    setMensaje("El registro fue exitoso");
 
     setUltimoId(ultimoId + 1); // Actualiza el último id utilizado
 
     setNombre("");
-    setCargo("");
     setEmail("");
     setEdad("");
+    setCargo("");
     setTelefono("");
 
-    console.log("Arreglo Formulario:", listaUsuarios);
-    console.log("Variable cot:", setUltimoId);
+    
   };
+   
 
   return (
     <>
-      <Listado datos={listaUsuarios} />
-      <form onSubmit={validarInput}>
+      {/* <Listado datos={listaUsuarios} /> */}
+      {/* <Listado datos={listaUsuarios} /> */}
+      <form onSubmit={enviarFormulario}>
         <div className="form-group">
           <input
             placeholder="Nombres"
@@ -109,11 +111,10 @@ const Formulario = () => {
           <button
             className="btn btn-success mt-3"
             type="submit"
-            onClick={enviarFormulario}
           >
             Registrarse
-          </button>
-          <Alert error={error} />
+          </button >
+          {error && <Alert mensaje={mensaje} />}
         </div>
       </form>
     </>

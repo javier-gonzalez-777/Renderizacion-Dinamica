@@ -1,18 +1,27 @@
-import React from "react";
-import Datos from "./BaseColaboradores";
-import Listado from "./components/Listado";
-import Buscador from "./components/Buscador";
-import Formulario from "./components/Formulario";
+
+import React, { useState } from 'react';
+import Datos from './BaseColaboradores';
+import Listado from './components/Listado';
+import Buscador from './components/Buscador';
+import Formulario from './components/Formulario';
 
 const App = () => {
+  const [listaUsuarios, setListaUsuarios] = useState(Datos);
+  const [filtroColaboradores, setFiltroColaboradores] = useState(Datos);
+
+  const agregarColaborador = (nuevoColaborador) => {
+    const nuevosUsuarios = [...listaUsuarios, nuevoColaborador];
+    setListaUsuarios(nuevosUsuarios);
+    setFiltroColaboradores(nuevosUsuarios);
+  };
+
   return (
     <div>
       <h3>Lista de colaboradores</h3>
-      <Buscador datos={Datos}/>
-      
-      {/* <Listado datos={Datos} />   */}
+      <Buscador datos={listaUsuarios} setFiltroColaboradores={setFiltroColaboradores} />
+      <Listado datos={filtroColaboradores} />
       <h3>Agregar colaborador</h3>
-      <Formulario />
+      <Formulario agregarColaborador={agregarColaborador} />
     </div>
   );
 };
