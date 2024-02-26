@@ -4,8 +4,6 @@ import Alert from "./Alert";
 import Listado from "./Listado";
 import Datos from "../BaseColaboradores";
 
-
-
 const Formulario = ({ agregarColaborador }) => {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -19,11 +17,10 @@ const Formulario = ({ agregarColaborador }) => {
 
   // const [ListadoNuevo, setListadoNuevo]= useState("")
 
-  
   const enviarFormulario = (e) => {
     e.preventDefault();
     //*** Validar **/
- 
+
     if (
       nombre === "" ||
       email === "" ||
@@ -36,10 +33,9 @@ const Formulario = ({ agregarColaborador }) => {
       return;
     }
     //setError(false);
-    
+
     //**fin Validar */
 
-    
     const nuevoColaborador = {
       id: ultimoId + 1, // Incrementa el id de manera dinámica //Math.floor(Math.random() * 1000), // Generar un id aleatorio
       nombre: nombre,
@@ -50,7 +46,7 @@ const Formulario = ({ agregarColaborador }) => {
     };
 
     agregarColaborador(nuevoColaborador);
-    
+
     setError(false);
     setMensaje("El registro fue exitoso");
 
@@ -61,16 +57,13 @@ const Formulario = ({ agregarColaborador }) => {
     setEdad("");
     setCargo("");
     setTelefono("");
-
-    
   };
-   
 
   return (
     <>
       {/* <Listado datos={listaUsuarios} /> */}
       {/* <Listado datos={listaUsuarios} /> */}
-      <form className="formulario" onSubmit={enviarFormulario}>
+      <form className="formulario mx-auto" onSubmit={enviarFormulario}>
         <div className="form-group">
           <input
             placeholder="Nombres"
@@ -109,12 +102,9 @@ const Formulario = ({ agregarColaborador }) => {
             onChange={(e) => setTelefono(e.target.value)}
           />
 
-          <button
-            className="btn btn-primary mt-3"  
-            type="submit"
-          >
+          <button className="btn btn-primary mt-3" type="submit">
             Agregar colaborador
-          </button >
+          </button>
           {error && <Alert mensaje={mensaje} />}
         </div>
       </form>

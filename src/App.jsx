@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <>
-      <div className="contenedor">
+      <div className="contenedor mx-auto">
         <h3 className="indice">Lista de colaboradores</h3>
         <Buscador
           datos={listaUsuarios}

@@ -6,7 +6,7 @@ const Listado = (props) => {
 
   return (
     <>
-      <Table className="dark table-bordered">
+      <Table className="dark table-bordered table-responsive">
         <thead>
           <tr>
             <th scope="col" className="text-center align-middle">
