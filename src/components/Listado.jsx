@@ -1,36 +1,47 @@
 import React from "react";
-//import { Datos } from "../BaseColaboradores";
+import Table from "react-bootstrap/Table";
 
 const Listado = (props) => {
   const { datos } = props;
- // console.log("arreglo Listado:", datos);
 
   return (
     <>
-      <table className="table">
+      <Table className="dark table-bordered">
         <thead>
           <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Correo</th>
-            <th scope="col">Edad</th>
-            <th scope="col">Cargo</th>
-            <th scope="col">Telefono</th>
+            <th scope="col" className="text-center align-middle">
+              Id
+            </th>
+            <th scope="col" className="text-center align-middle">
+              Nombre
+            </th>
+            <th scope="col" className="text-center align-middle">
+              Correo
+            </th>
+            <th scope="col" className="text-center align-middle">
+              Edad
+            </th>
+            <th scope="col" className="text-center align-middle">
+              Cargo
+            </th>
+            <th scope="col" className="text-center align-middle">
+              Telefono
+            </th>
           </tr>
         </thead>
         <tbody>
           {datos.map((objeto, index) => (
-            <tr key={index} id={index}>
-              <td>{objeto.id}</td>
-              <td>{objeto.nombre}</td>
-              <td>{objeto.email}</td>
-              <td>{objeto.edad}</td>
-              <td>{objeto.cargo}</td>
-              <td>{objeto.telefono}</td>
+            <tr key={index}>
+              <td className="text-center align-middle">{objeto.id}</td>
+              <td className="text-center align-middle">{objeto.nombre}</td>
+              <td className="text-center align-middle">{objeto.email}</td>
+              <td className="text-center align-middle">{objeto.edad}</td>
+              <td className="text-center align-middle">{objeto.cargo}</td>
+              <td className="text-center align-middle">{objeto.telefono}</td>
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     </>
   );
 };

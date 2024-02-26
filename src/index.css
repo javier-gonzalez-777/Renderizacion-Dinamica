@@ -13,14 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+/* a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
 a:hover {
   color: #535bf2;
-}
+} */
 
 body {
   margin: 0;
@@ -81,17 +81,47 @@ button:focus-visible {
   background-color: rgb(18, 241, 22);
   text-align: center;
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 10px;
 }
-.formulario{
-  width: 300px;
-  /* border: 2px solid red; */
+
+.formulario {
+  max-width: 400px;
+  margin: 0 auto;
 }
-.contenedor{
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.contenedor {
   display: flex;
   flex-direction: column;
   padding-left: 20px;
 }
-.btn{
+.btn {
   width: 300px;
+}
+
+h3 {
+  margin-left: 200px;
 }
