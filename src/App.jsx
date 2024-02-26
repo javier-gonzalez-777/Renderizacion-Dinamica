@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Datos from './BaseColaboradores';
 import Listado from './components/Listado';
