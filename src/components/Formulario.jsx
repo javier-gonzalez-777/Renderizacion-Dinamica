@@ -5,6 +5,7 @@ import Listado from "./Listado";
 import Datos from "../BaseColaboradores";
 
 
+
 const Formulario = ({ agregarColaborador }) => {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -69,7 +70,7 @@ const Formulario = ({ agregarColaborador }) => {
     <>
       {/* <Listado datos={listaUsuarios} /> */}
       {/* <Listado datos={listaUsuarios} /> */}
-      <form onSubmit={enviarFormulario}>
+      <form className="formulario" onSubmit={enviarFormulario}>
         <div className="form-group">
           <input
             placeholder="Nombres"
@@ -109,10 +110,10 @@ const Formulario = ({ agregarColaborador }) => {
           />
 
           <button
-            className="btn btn-success mt-3"
+            className="btn btn-primary mt-3"  
             type="submit"
           >
-            Registrarse
+            Agregar colaborador
           </button >
           {error && <Alert mensaje={mensaje} />}
         </div>

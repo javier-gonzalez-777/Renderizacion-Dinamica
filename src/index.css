@@ -83,3 +83,15 @@ button:focus-visible {
   font-weight: bold;
   border-radius: 10px;
 }
+.formulario{
+  width: 300px;
+  /* border: 2px solid red; */
+}
+.contenedor{
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+.btn{
+  width: 300px;
+}

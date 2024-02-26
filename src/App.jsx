@@ -16,13 +16,16 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h3>Lista de colaboradores</h3>
+    <>
+    
+    <div className="contenedor">
+    <h3>Lista de colaboradores</h3>
       <Buscador datos={listaUsuarios} setFiltroColaboradores={setFiltroColaboradores} />
       <Listado datos={filtroColaboradores} />
       <h3>Agregar colaborador</h3>
       <Formulario agregarColaborador={agregarColaborador} />
     </div>
+    </>
   );
 };
 

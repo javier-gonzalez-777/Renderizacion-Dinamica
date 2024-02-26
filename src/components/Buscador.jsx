@@ -24,7 +24,7 @@ const Buscador = ({ datos, setFiltroColaboradores }) => {
         onChange={handleBusquedaChange}
         placeholder="Buscar colaboradores..."
       />
-      <button type="submit">Buscar</button>
+      {/* <button type="submit">Buscar</button> */}
     </form>
   );
 };
